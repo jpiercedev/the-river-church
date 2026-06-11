@@ -20,9 +20,14 @@ This is a **migration, not a redesign**.
 
 ## Current Status
 
-**On track.** Site builds cleanly, lints clean, type-checks clean. Home, About, contact
-form, and full SEO are implemented and visually verified against the mockup (desktop +
-mobile). Remaining work: commit/push to GitHub and deploy to Vercel.
+**🎉 Complete & live in production.** All 10 milestones done. Site builds/lints/type-checks
+clean, is pushed to GitHub, and is deployed and verified on Vercel.
+
+- **Live:** https://river-church-beige.vercel.app
+- **Repo:** https://github.com/jpiercedev/the-river-church (push-to-deploy connected)
+
+The only outstanding item is operational, not engineering: provide Resend credentials so the
+contact form sends live email (it currently validates and responds gracefully without them).
 
 ## Milestone Progress
 
@@ -35,9 +40,9 @@ mobile). Remaining work: commit/push to GitHub and deploy to Vercel.
 | 5 | Forms (Resend) | ✅ Complete (delivery pending API key) |
 | 6 | SEO | ✅ Complete (verified) |
 | 7 | Quality Assurance | ✅ Clean build / lint / types |
-| 8 | GitHub | ⏳ In progress |
-| 9 | Vercel | ⏳ Pending |
-| 10 | Final Verification | ⏳ Pending |
+| 8 | GitHub | ✅ Complete |
+| 9 | Vercel | ✅ Complete — deployed & verified live |
+| 10 | Final Verification | ✅ Complete |
 
 ## Completed Tasks
 
@@ -61,10 +66,14 @@ mobile). Remaining work: commit/push to GitHub and deploy to Vercel.
 
 ## Remaining Tasks
 
-- [ ] Commit code and push to a GitHub repository (account: `jpiercedev`).
-- [ ] Create / deploy the Vercel project; set environment variables.
-- [ ] Verify the production URL (pages, robots, sitemap render).
-- [ ] Final pass against all business / technical / SEO goals.
+All engineering milestones complete. Operational follow-ups (need church-provided info):
+
+- [ ] Provide Resend creds (`RESEND_API_KEY`, `CONTACT_FORM_TO`, `CONTACT_FORM_FROM`) so the
+      form sends live email, then redeploy.
+- [ ] (Optional) Add a custom domain in Vercel; update `NEXT_PUBLIC_SITE_URL` to match.
+- [ ] Replace placeholder social / media / giving links with real church URLs.
+- [ ] Confirm the correct public phone number (see Known Issues).
+- [ ] (Optional) Submit the sitemap to Google Search Console.
 
 ## Environment Variables
 
@@ -75,7 +84,7 @@ Defined in `.env.example` (copy to `.env.local`; never commit real values):
 | `RESEND_API_KEY` | Resend API key for sending mail | ⚠️ Not provided — needed for live email |
 | `CONTACT_FORM_TO` | Recipient inbox for submissions | ⚠️ Not provided |
 | `CONTACT_FORM_FROM` | Verified Resend sender | ⚠️ Not provided |
-| `NEXT_PUBLIC_SITE_URL` | Canonical origin (sitemap/OG/canonical) | ⚠️ Recommended; falls back to Vercel URL |
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin (sitemap/OG/canonical) | ✅ Set on Vercel = `https://river-church-beige.vercel.app` |
 
 Without the three Resend vars, the form validates and responds gracefully with a 503
 ("not fully configured") instead of sending — no crash, no leaked details.
@@ -83,12 +92,25 @@ Without the three Resend vars, the form validates and responds gracefully with a
 ## GitHub Repository
 
 - Authenticated CLI account: **jpiercedev** (`gh` verified).
-- Repo: _to be created_ this milestone.
+- **Repo:** https://github.com/jpiercedev/the-river-church (public, default branch `main`).
+- Initial commit pushed. The repo root **is** the Next.js project, so Vercel needs no
+  "root directory" override — it auto-detects Next.js at the repo root.
 
 ## Vercel Deployment
 
-- Vercel CLI present but not logged in; deployment will use the available Vercel MCP tool.
-- Production URL: _pending_.
+- **Status: deployed & verified live.** ✅
+- **Production URL:** https://river-church-beige.vercel.app
+- **Project:** `jpiercedevs-projects/river-church` (deployed via Vercel CLI with a token the
+  owner supplied).
+- **GitHub integration:** the CLI connected the repo, so pushes to `jpiercedev/the-river-church`
+  `main` now trigger automatic production deployments.
+- **Deployment Protection:** the team had Vercel Authentication (SSO) on by default, which
+  returned 401 on the deployment URLs. Disabled `ssoProtection` for this project so the public
+  church site is reachable anonymously.
+- `NEXT_PUBLIC_SITE_URL` set to the production URL and baked into the build.
+- **Verified on the live URL:** `/` 200, `/about` 200, correct `<title>`/canonical/OG,
+  JSON-LD Church node, `robots.txt`, `sitemap.xml`, optimized images, and `/api/contact`
+  returning a graceful 503 (no Resend creds yet).
 
 ## Form Status
 
