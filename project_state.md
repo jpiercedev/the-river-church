@@ -133,8 +133,21 @@ rendering for performance.
   destinations until the church supplies real URLs (giving platform, YouTube channel, etc.).
 - **Geo coordinates:** omitted from JSON-LD (no authoritative lat/long found); a Google Maps
   link by address is used for "Get Directions" instead.
-- **No precise OG render:** `og.jpg` reuses the worship photo (1440×1080) rather than a
-  1200×630 branded card. Acceptable; can be refined later.
+- **OG image:** `og.jpg` is now a 1200×630 center-crop of the worship photo. A bespoke
+  branded card (logo + tagline) could be created later for extra polish.
+
+## Quality Review
+
+A final adversarial multi-agent review ran across four dimensions (correctness/security,
+SEO, accessibility, fidelity/responsive). Correctness/security and fidelity came back clean.
+All 6 confirmed findings were fixed and redeployed (commit `21fab73`):
+
+- a11y — `<main tabIndex={-1}>` so the skip link moves focus into content.
+- a11y — darkened `--muted` (`#6d7986` → `#5a6673`) to meet WCAG AA contrast on white & cream.
+- a11y — contact form focuses the first invalid field and announces errors via `role="alert"`.
+- a11y — state-neutral `aria-label="Navigation menu"` on the mobile disclosure.
+- seo — homepage sitemap URL matches the canonical (no trailing slash).
+- seo — OG/Twitter image regenerated at 1200×630 (1.91:1) with updated declared dimensions.
 
 ## Next Recommendations
 
