@@ -56,7 +56,7 @@ export default function Header() {
           </div>
 
           <details className="nav-toggle">
-            <summary aria-label="Open navigation menu">
+            <summary aria-label="Navigation menu">
               <span aria-hidden="true">☰</span>
             </summary>
             <nav className="nav-panel" aria-label="Mobile">

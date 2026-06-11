@@ -29,8 +29,12 @@ export default function ContactForm() {
 
     const found = validate(form);
     setErrors(found);
-    if (Object.keys(found).length > 0) {
+    const firstError = Object.keys(found)[0];
+    if (firstError) {
       setStatus("idle");
+      // Move focus to the first invalid field so the error is announced.
+      const el = form.elements.namedItem(firstError);
+      if (el instanceof HTMLElement) el.focus();
       return;
     }
 
@@ -118,7 +122,7 @@ export default function ContactForm() {
             aria-describedby={errors.name ? nameErrId : undefined}
           />
           {errors.name && (
-            <span className="field-error" id={nameErrId}>
+            <span className="field-error" id={nameErrId} role="alert">
               {errors.name}
             </span>
           )}
@@ -136,7 +140,7 @@ export default function ContactForm() {
             aria-describedby={errors.email ? emailErrId : undefined}
           />
           {errors.email && (
-            <span className="field-error" id={emailErrId}>
+            <span className="field-error" id={emailErrId} role="alert">
               {errors.email}
             </span>
           )}

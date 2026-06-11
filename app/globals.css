@@ -18,7 +18,7 @@
   --cream: #f6f3ed;
   --ink: #10243a;
   --gold: #d7a447;
-  --muted: #6d7986;
+  --muted: #5a6673;
   --shell: 70px; /* horizontal page gutter */
 }
 
@@ -69,6 +69,11 @@ summary:focus-visible {
 .skip-link:focus {
   left: 8px;
   top: 8px;
+}
+
+/* <main> is focused programmatically via the skip link; don't show a ring. */
+#main:focus {
+  outline: none;
 }
 
 .visually-hidden {

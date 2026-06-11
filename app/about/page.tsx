@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Our core values and statement of faith — what we believe at The River Church in Wisconsin Rapids, WI.",
     url: `${site.url}/about`,
     type: "website",
-    images: [{ url: "/og.jpg", width: 1440, height: 1080, alt: `${site.name}` }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name}` }],
   },
 };
 

@@ -46,8 +46,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.jpg",
-        width: 1440,
-        height: 1080,
+        width: 1200,
+        height: 630,
         alt: `${site.name} worship gathering`,
       },
     ],
@@ -76,7 +76,9 @@ export default function RootLayout({
         </a>
         <StructuredData />
         <Header />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
