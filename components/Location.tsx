@@ -26,6 +26,10 @@ export default function Location() {
           <br />
           <br />
           {site.service.label}
+          <br />
+          <a className="address-phone" href={`tel:${site.phone}`}>
+            {site.phoneDisplay}
+          </a>
         </p>
         <a
           className="btn btn-blue"

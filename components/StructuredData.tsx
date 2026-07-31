@@ -28,6 +28,7 @@ export default function StructuredData() {
           addressCountry: site.address.country,
         },
         hasMap: site.links.map,
+        sameAs: [site.links.facebook, site.links.instagram, site.links.youtube],
         openingHoursSpecification: [
           {
             "@type": "OpeningHoursSpecification",

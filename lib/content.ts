@@ -5,11 +5,15 @@
  */
 import type { StaticImageData } from "next/image";
 
+import { site } from "@/lib/site";
 import kevinBishop from "@/assets/kevin-bishop.jpg";
 import sharonBishop from "@/assets/sharon-bishop.jpg";
 import jacobAnderson from "@/assets/jacob-anderson.jpg";
 import amandaRoberson from "@/assets/amanda-roberson.jpg";
 import erleneJackson from "@/assets/erlene-jackson.jpg";
+import baptism from "@/assets/baptism.webp";
+import fellowshipCookout from "@/assets/fellowship-cookout.webp";
+import ladiesNight from "@/assets/ladies-night.webp";
 
 export type NavItem = { label: string; href: string };
 
@@ -23,7 +27,7 @@ export const navItems: NavItem[] = [
   { label: "Prayer", href: "/#visit" },
 ];
 
-export const giveLink: NavItem = { label: "Give", href: "/#visit" };
+export const giveLink: NavItem = { label: "Give", href: site.links.give };
 
 export const dailyVerse = {
   text:
@@ -63,7 +67,7 @@ export const intro = {
     {
       title: "Give & Serve",
       body: "Partner with the work of The River through generosity and service.",
-      link: { label: "Get Involved", href: "#visit" },
+      link: { label: "Give Online", href: site.links.give },
       accent: "gold" as const,
     },
   ],
@@ -76,8 +80,8 @@ export const latestMessage = {
   meta: "Pastor Kevin Bishop · Sunday Message",
   body:
     "Be encouraged by the latest message from The River Church and discover how God is calling us to live with faith, purpose, and freedom.",
-  primaryCta: { label: "Watch Latest Message", href: "#visit" },
-  secondaryCta: { label: "All Messages", href: "#visit" },
+  primaryCta: { label: "Watch On YouTube", href: site.links.youtube },
+  secondaryCta: { label: "Watch On Facebook", href: site.links.facebookVideos },
 };
 
 export const featuredEvent = {
@@ -87,7 +91,7 @@ export const featuredEvent = {
   title: "Father's Day Service",
   body:
     "A special day to celebrate and honor every father, featuring guest speaker Dr. William P. Hohman and a gift for all fathers while supplies last.",
-  cta: { label: "Event Details", href: "#visit" },
+  cta: { label: "See All Events", href: site.links.facebookEvents },
   imageAlt: "Father's Day Service event graphic at The River Church",
 };
 
@@ -117,6 +121,35 @@ export const team = {
   ] satisfies TeamMember[],
 };
 
+export const gallery = {
+  eyebrow: "Life At The River",
+  heading: "Faith, Family, Freedom",
+  body:
+    "From the waters of baptism to Sunday cookouts on the lawn, this is what life together looks like at The River.",
+  // `focus` is the CSS object-position used to crop each photo into the
+  // gallery's uniform tiles, keeping the subject centered.
+  photos: [
+    {
+      image: baptism,
+      alt: "A man being baptized during an outdoor baptism service at The River Church",
+      caption: "New life in Christ",
+      focus: "center 52%",
+    },
+    {
+      image: fellowshipCookout,
+      alt: "Church family gathering outside for a summer cookout at The River Church",
+      caption: "Fellowship on the lawn",
+      focus: "center 78%",
+    },
+    {
+      image: ladiesNight,
+      alt: "A speaker addressing the congregation during Ladies Night at The River Church",
+      caption: "Ladies Night",
+      focus: "center 38%",
+    },
+  ],
+};
+
 export const location = {
   eyebrow: "Location & Services",
   heading: "Come Worship With Us",
@@ -138,10 +171,11 @@ export const footer = {
     {
       title: "Connect",
       links: [
-        { label: "I'm New Here", href: "/#visit" },
-        { label: "Prayer", href: "/#visit" },
+        { label: "Plan Your Visit", href: "/#visit" },
+        { label: "Prayer Request", href: "/#visit" },
         { label: "Events", href: "/#events" },
         { label: "Our Team", href: "/#team" },
+        { label: "Give Online", href: site.links.give },
       ],
     },
     {
@@ -150,7 +184,7 @@ export const footer = {
         { label: "Our Mission", href: "/about" },
         { label: "Our Beliefs", href: "/about#beliefs" },
         { label: "Core Values", href: "/about#values" },
-        { label: "Messages", href: "/#message" },
+        { label: "Watch Messages", href: site.links.youtube },
       ],
     },
   ],

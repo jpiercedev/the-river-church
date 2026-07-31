@@ -1,6 +1,6 @@
 # Project State — The River Church Website
 
-_Last updated: 2026-06-11_
+_Last updated: 2026-07-31_
 
 ## Overview
 
@@ -17,6 +17,14 @@ This is a **migration, not a redesign**.
 - **Email:** Resend (via `/api/contact` route handler).
 - **Rendering:** Static-first. Home + About are static; only `/api/contact` is dynamic.
 - **Scope:** 2 pages — Home (`/`) and About (`/about`). No CMS, DB, or auth (by design).
+
+### 2026-07-31 content update
+
+Client round of changes: confirmed phone number, real Tithe.ly giving link, watch buttons wired
+to YouTube/Facebook, and five church-supplied photos added. New on the homepage: a
+**Life At The River** photo band between Team and Location, and a two-column **Plan Your Visit**
+(welcome photo beside the form). `worship-center.jpg` no longer does double duty — the Latest
+Message section now uses a dedicated worship photo.
 
 ## Current Status
 
@@ -71,9 +79,28 @@ All engineering milestones complete. Operational follow-ups (need church-provide
 - [ ] Provide Resend creds (`RESEND_API_KEY`, `CONTACT_FORM_TO`, `CONTACT_FORM_FROM`) so the
       form sends live email, then redeploy.
 - [ ] (Optional) Add a custom domain in Vercel; update `NEXT_PUBLIC_SITE_URL` to match.
-- [ ] Replace placeholder social / media / giving links with real church URLs.
-- [ ] Confirm the correct public phone number (see Known Issues).
+- [x] Replace placeholder social / media / giving links with real church URLs. _(2026-07-31)_
+- [x] Confirm the correct public phone number — **715-423-3222**. _(2026-07-31)_
+- [ ] Supply fresh featured-event copy + graphic (the Father's Day feature is stale).
 - [ ] (Optional) Submit the sitemap to Google Search Console.
+
+## Outbound Links
+
+All live in `lib/site.ts` under `links`. External URLs render through `components/SmartLink.tsx`,
+which emits a plain anchor with `target="_blank" rel="noopener noreferrer"`; internal routes and
+in-page anchors still use `next/link`.
+
+| Link | URL | Used by |
+|------|-----|---------|
+| Give (Tithe.ly) | `give.tithe.ly/?formId=a61803f7-…` | header GIVE, "Give & Serve" card, footer |
+| YouTube | `youtube.com/@theriverchurchinc5721` | "Watch On YouTube", social icons, footer |
+| Facebook | `facebook.com/theriverchurchinc` | social icons (header + footer) |
+| Facebook videos | `facebook.com/theriverchurchinc/videos` | "Watch On Facebook" |
+| Facebook events | `facebook.com/theriverchurchinc/events` | "See All Events" |
+| Instagram | `instagram.com/theriverinc/` | social icons (header + footer) |
+
+The only remaining `#visit` links are the ones that *should* reach the contact form: the
+"Prayer" nav item, both "Plan Your Visit" CTAs, and the footer's Prayer Request entry.
 
 ## Environment Variables
 
@@ -126,11 +153,15 @@ rendering for performance.
 
 ## Known Issues
 
-- **Phone discrepancy:** mockup/footer list `715-257-0261`; some external directories list
-  `(715) 423-3222`. Using the mockup value (source of truth). Confirm with the church.
-- **Placeholder outbound links:** social icons (Facebook/Instagram/YouTube) and media CTAs
-  ("Watch Latest Message", "Give", "Event Details") point to in-page anchors / generic
-  destinations until the church supplies real URLs (giving platform, YouTube channel, etc.).
+- ~~**Phone discrepancy**~~ — resolved 2026-07-31. The church confirmed **715-423-3222**;
+  the old mockup value (`715-257-0261`) has been removed everywhere.
+- ~~**Placeholder outbound links**~~ — resolved 2026-07-31. All social, giving, and media
+  CTAs now point at real church destinations (see Outbound Links below).
+- **Old site is offline:** `theriverchurchinc.com` now redirects to
+  `mychurchwebsite.net/suspend.php` (host suspended the account). The Facebook and Instagram
+  URLs below were recovered from the Feb 2025 Wayback snapshot, not the live site.
+- **Stale featured event:** the homepage still features the June 21 Father's Day service from
+  the original mockup. Needs fresh event copy + graphic from the church.
 - **Geo coordinates:** omitted from JSON-LD (no authoritative lat/long found); a Google Maps
   link by address is used for "Get Directions" instead.
 - **OG image:** `og.jpg` is now a 1200×630 center-crop of the worship photo. A bespoke

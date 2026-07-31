@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import SmartLink from "@/components/SmartLink";
 import { intro } from "@/lib/content";
 
 const accentClass = {
@@ -25,9 +26,9 @@ export default function MissionIntro() {
           <div key={card.title} className={`card ${accentClass[card.accent]}`.trim()}>
             <h3>{card.title.toUpperCase()}</h3>
             <p>{card.body}</p>
-            <Link className="text-link" href={card.link.href}>
+            <SmartLink className="text-link" href={card.link.href}>
               {card.link.label} &rarr;
-            </Link>
+            </SmartLink>
           </div>
         ))}
       </div>

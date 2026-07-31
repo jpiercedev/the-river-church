@@ -4,6 +4,7 @@ import MissionIntro from "@/components/MissionIntro";
 import LatestMessage from "@/components/LatestMessage";
 import Events from "@/components/Events";
 import Team from "@/components/Team";
+import Gallery from "@/components/Gallery";
 import Location from "@/components/Location";
 import PlanYourVisit from "@/components/PlanYourVisit";
 
@@ -16,6 +17,7 @@ export default function HomePage() {
       <LatestMessage />
       <Events />
       <Team />
+      <Gallery />
       <Location />
       <PlanYourVisit />
     </>

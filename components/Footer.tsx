@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import SmartLink from "@/components/SmartLink";
 import logo from "@/assets/river-church-logo.jpg";
 import { footer } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -46,7 +47,7 @@ export default function Footer() {
             <ul>
               {col.links.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href}>{link.label}</Link>
+                  <SmartLink href={link.href}>{link.label}</SmartLink>
                 </li>
               ))}
             </ul>

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 
+import SmartLink from "@/components/SmartLink";
 import fathersDay from "@/assets/fathers-day.png";
 import { featuredEvent } from "@/lib/content";
 
@@ -26,9 +26,9 @@ export default function Events() {
           <h3>{featuredEvent.title}</h3>
           <p>{featuredEvent.body}</p>
           <div>
-            <Link className="btn btn-blue" href={featuredEvent.cta.href}>
+            <SmartLink className="btn btn-blue" href={featuredEvent.cta.href}>
               {featuredEvent.cta.label}
-            </Link>
+            </SmartLink>
           </div>
         </div>
       </div>

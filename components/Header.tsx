@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import SmartLink from "@/components/SmartLink";
 import logo from "@/assets/river-church-logo.jpg";
 import { navItems, giveLink } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -35,9 +36,9 @@ export default function Header() {
                 {item.label.toUpperCase()}
               </Link>
             ))}
-            <Link className="give" href={giveLink.href}>
+            <SmartLink className="give" href={giveLink.href}>
               {giveLink.label.toUpperCase()}
-            </Link>
+            </SmartLink>
           </nav>
 
           <div className="socials">
@@ -65,9 +66,9 @@ export default function Header() {
                   {item.label}
                 </Link>
               ))}
-              <Link className="give" href={giveLink.href}>
+              <SmartLink className="give" href={giveLink.href}>
                 {giveLink.label}
-              </Link>
+              </SmartLink>
             </nav>
           </details>
         </div>

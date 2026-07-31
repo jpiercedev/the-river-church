@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 
-import worshipCenter from "@/assets/worship-center.jpg";
+import SmartLink from "@/components/SmartLink";
+import worshipLeader from "@/assets/worship-leader.webp";
 import { latestMessage } from "@/lib/content";
 
 export default function LatestMessage() {
@@ -9,12 +9,12 @@ export default function LatestMessage() {
     <section className="message" id="message" aria-label="Latest message">
       <div className="message-image">
         <Image
-          src={worshipCenter}
-          alt="The River Church worship gathering"
+          src={worshipLeader}
+          alt="Worship leader singing during a service at The River Church"
           fill
           sizes="(max-width: 860px) 100vw, 55vw"
           placeholder="blur"
-          style={{ objectFit: "cover", objectPosition: "center 44%" }}
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
         />
       </div>
       <div className="message-copy">
@@ -29,12 +29,12 @@ export default function LatestMessage() {
         <p className="message-meta">{latestMessage.meta}</p>
         <p>{latestMessage.body}</p>
         <div>
-          <Link className="btn btn-blue" href={latestMessage.primaryCta.href}>
+          <SmartLink className="btn btn-blue" href={latestMessage.primaryCta.href}>
             {latestMessage.primaryCta.label}
-          </Link>
-          <Link className="btn btn-outline" href={latestMessage.secondaryCta.href}>
+          </SmartLink>
+          <SmartLink className="btn btn-outline" href={latestMessage.secondaryCta.href}>
             {latestMessage.secondaryCta.label}
-          </Link>
+          </SmartLink>
         </div>
       </div>
     </section>

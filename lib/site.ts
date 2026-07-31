@@ -35,8 +35,8 @@ export const site = {
     country: "US",
     full: `${street}, ${cityStateZip}`,
   },
-  phone: "+1-715-257-0261",
-  phoneDisplay: "715-257-0261",
+  phone: "+1-715-423-3222",
+  phoneDisplay: "715-423-3222",
   email: "office@theriverchurchinc.com",
 
   service: {
@@ -45,8 +45,7 @@ export const site = {
     label: "Sunday Service · 10:00 AM",
   },
 
-  // External / utility links. Placeholders point to in-page sections or maps
-  // until the church supplies real giving / streaming / social URLs.
+  // External / utility links — all church-provided or verified destinations.
   links: {
     directions: `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
       `${street}, ${cityStateZip}`,
@@ -54,10 +53,20 @@ export const site = {
     map: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
       `The River Church, ${street}, ${cityStateZip}`,
     )}`,
-    facebook: "https://www.facebook.com/",
-    instagram: "https://www.instagram.com/",
-    youtube: "https://www.youtube.com/",
+    facebook: "https://www.facebook.com/theriverchurchinc",
+    facebookVideos: "https://www.facebook.com/theriverchurchinc/videos",
+    facebookEvents: "https://www.facebook.com/theriverchurchinc/events",
+    instagram: "https://instagram.com/theriverinc/",
+    youtube: "https://www.youtube.com/@theriverchurchinc5721",
+    // Tithe.ly giving form.
+    give: "https://give.tithe.ly/?formId=a61803f7-1250-4774-9ded-64472b349759",
   },
 } as const;
 
 export type Site = typeof site;
+
+/** True for absolute URLs that leave the site — these render as plain
+ *  anchors with `target="_blank"` instead of a client-side `next/link`. */
+export function isExternal(href: string): boolean {
+  return /^https?:\/\//i.test(href);
+}
