@@ -19,8 +19,11 @@ export default function Team() {
                   src={member.image}
                   alt={`${member.name}, ${member.role}`}
                   fill
-                  sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 220px"
+                  sizes="(max-width: 364px) calc(100vw - 44px), (max-width: 520px) 320px, (max-width: 860px) 50vw, 220px"
                   placeholder="blur"
+                  // Without this the blur placeholder paints at 50% 50% while
+                  // the loaded photo is anchored top, so faces jump on load.
+                  style={{ objectFit: "cover", objectPosition: "center top" }}
                 />
               </div>
             ) : (

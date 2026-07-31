@@ -13,7 +13,10 @@ export default function Gallery() {
 
       <div className="gallery-grid">
         {gallery.photos.map((photo) => (
-          <figure key={photo.caption} className="shot">
+          <figure
+            key={photo.caption}
+            className={photo.image.width > photo.image.height ? "shot shot--wide" : "shot"}
+          >
             <Image
               src={photo.image}
               alt={photo.alt}

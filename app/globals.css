@@ -301,7 +301,13 @@ nav.primary-nav a.give:hover {
 
 /* ───────────────────────────  Buttons  ─────────────────────────── */
 .btn {
-  display: inline-block;
+  /* inline-flex + min-height rather than extra padding: border-box absorbs
+     the outline variant's 1px border, so solid and outline buttons land on
+     the same 44px instead of 42/44. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 15px 24px;
   margin: 5px;
   text-decoration: none;
@@ -549,16 +555,20 @@ section {
   background: #fff;
   text-align: left;
 }
+/* Square box at every width. A fixed height made these cards go landscape as
+   the grid narrowed (320x205 in the 1-column phone layout), which cropped the
+   bottom off portrait headshots — chins first. Tying the box to the sources'
+   ~1:1 aspect keeps the framing identical at every breakpoint. */
 .person-media {
   position: relative;
-  height: 205px;
+  aspect-ratio: 1 / 1;
 }
 .person-media > img {
   object-fit: cover;
   object-position: center top;
 }
 .person-placeholder {
-  height: 205px;
+  aspect-ratio: 1 / 1;
   display: grid;
   place-items: center;
   color: #fff;
@@ -1055,7 +1065,7 @@ footer.site-footer a:hover {
     box-shadow: 0 18px 50px rgba(7, 29, 53, 0.18);
   }
   .nav-panel a {
-    padding: 12px 10px;
+    padding: 15px 10px;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1.2px;
@@ -1114,6 +1124,14 @@ footer.site-footer a:hover {
   .shot {
     height: 300px;
   }
+  /* One column is narrower than a landscape source, so `cover` scales by
+     height and slices people off BOTH edges. Landscape tiles take the
+     photo's own ratio instead; portrait tiles keep the uniform height and
+     their per-photo focus values. */
+  .shot--wide {
+    height: auto;
+    aspect-ratio: 1242 / 762;
+  }
   .visit-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -1156,6 +1174,42 @@ footer.site-footer a:hover {
   .field-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  /* iOS Safari zooms the whole page when a focused control is under 16px. */
+  .field input,
+  .field textarea {
+    font-size: 16px;
+  }
+  /* Comfortable touch targets. Footer links stack in a single column on a
+     phone, where a 13px anchor at ~20px pitch is easy to mis-tap. */
+  footer.site-footer li a,
+  footer.site-footer p a[href^="tel:"] {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  footer.site-footer p a[href^="tel:"] {
+    display: inline-flex;
+  }
+
+  /* The 27px icons are fine to look at, so the circle keeps its size and the
+     tappable area is grown around it. */
+  .socials {
+    gap: 2px;
+  }
+  .social {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+  }
+  .social > span {
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--blue);
   }
 
   .footer-grid {

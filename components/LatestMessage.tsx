@@ -14,7 +14,7 @@ export default function LatestMessage() {
           fill
           sizes="(max-width: 860px) 100vw, 55vw"
           placeholder="blur"
-          style={{ objectFit: "cover", objectPosition: "center 30%" }}
+          style={{ objectFit: "cover", objectPosition: "center 15%" }}
         />
       </div>
       <div className="message-copy">

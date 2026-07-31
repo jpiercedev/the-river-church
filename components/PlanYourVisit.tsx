@@ -15,6 +15,8 @@ export default function PlanYourVisit() {
             fill
             sizes="(max-width: 860px) 100vw, 40vw"
             placeholder="blur"
+            // Keeps the blur placeholder anchored where the loaded photo is.
+            style={{ objectFit: "cover", objectPosition: "center 30%" }}
           />
         </div>
 

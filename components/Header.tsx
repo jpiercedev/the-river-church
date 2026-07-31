@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import SmartLink from "@/components/SmartLink";
+import MobileNav from "@/components/MobileNav";
 import logo from "@/assets/river-church-logo.jpg";
 import { navItems, giveLink } from "@/lib/content";
 import { site } from "@/lib/site";
@@ -56,21 +57,7 @@ export default function Header() {
             ))}
           </div>
 
-          <details className="nav-toggle">
-            <summary aria-label="Navigation menu">
-              <span aria-hidden="true">☰</span>
-            </summary>
-            <nav className="nav-panel" aria-label="Mobile">
-              {navItems.map((item) => (
-                <Link key={item.label} href={item.href}>
-                  {item.label}
-                </Link>
-              ))}
-              <SmartLink className="give" href={giveLink.href}>
-                {giveLink.label}
-              </SmartLink>
-            </nav>
-          </details>
+          <MobileNav />
         </div>
       </header>
     </>
