@@ -12,6 +12,7 @@ import jacobAnderson from "@/assets/jacob-anderson.webp";
 import amandaRoberson from "@/assets/amanda-roberson.webp";
 import erleneJackson from "@/assets/erlene-jackson.jpg";
 import debraFiegen from "@/assets/debra-fiegen.webp";
+import arnoldKing from "@/assets/arnold-king.webp";
 import baptism from "@/assets/baptism.webp";
 import fellowshipCookout from "@/assets/fellowship-cookout.webp";
 import ladiesNight from "@/assets/ladies-night.webp";
@@ -151,6 +152,7 @@ export const team = {
     { name: "Erlene Jackson", role: "Church Secretary", image: erleneJackson },
     { name: "Debbie Winkler", role: "Children's Ministry", initials: "DW" },
     { name: "Debra Fiegen", role: "Ladies Ministry", image: debraFiegen },
+    { name: "Arnold King", role: "Iron Men's Ministry", image: arnoldKing },
   ] satisfies TeamMember[],
 };
 
