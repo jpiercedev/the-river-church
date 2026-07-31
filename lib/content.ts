@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 import kevinBishop from "@/assets/kevin-bishop.jpg";
 import sharonBishop from "@/assets/sharon-bishop.webp";
 import jacobAnderson from "@/assets/jacob-anderson.jpg";
-import amandaRoberson from "@/assets/amanda-roberson.jpg";
+import amandaRoberson from "@/assets/amanda-roberson.webp";
 import erleneJackson from "@/assets/erlene-jackson.jpg";
 import debraFiegen from "@/assets/debra-fiegen.webp";
 import baptism from "@/assets/baptism.webp";
