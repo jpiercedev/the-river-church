@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import worshipCenter from "@/assets/worship-center.jpg";
+import worshipGathering from "@/assets/worship-gathering.webp";
 import { hero } from "@/lib/content";
 
 export default function Hero() {
@@ -9,13 +9,13 @@ export default function Hero() {
     <section className="hero" aria-label="Welcome">
       <Image
         className="hero-bg"
-        src={worshipCenter}
+        src={worshipGathering}
         alt=""
         fill
         priority
         sizes="100vw"
         placeholder="blur"
-        style={{ objectFit: "cover", objectPosition: "center 53%" }}
+        style={{ objectFit: "cover", objectPosition: "center 40%" }}
       />
       <div className="hero-overlay" aria-hidden="true" />
       <div className="hero-content">
