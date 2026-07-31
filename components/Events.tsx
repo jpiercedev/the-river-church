@@ -1,36 +1,46 @@
 import Image from "next/image";
 
 import SmartLink from "@/components/SmartLink";
-import fathersDay from "@/assets/fathers-day.png";
-import { featuredEvent } from "@/lib/content";
+import { events } from "@/lib/content";
 
 export default function Events() {
   return (
     <section className="events" id="events">
       <p className="eyebrow" style={{ color: "var(--blue)" }}>
-        {featuredEvent.eyebrow}
+        {events.eyebrow}
       </p>
-      <h2>{featuredEvent.heading}</h2>
-      <div className="event-feature">
-        <div className="event-media">
-          <Image
-            src={fathersDay}
-            alt={featuredEvent.imageAlt}
-            fill
-            sizes="(max-width: 860px) 100vw, 60vw"
-            placeholder="blur"
-          />
-        </div>
-        <div className="event-copy">
-          <p className="event-date">{featuredEvent.date}</p>
-          <h3>{featuredEvent.title}</h3>
-          <p>{featuredEvent.body}</p>
-          <div>
-            <SmartLink className="btn btn-blue" href={featuredEvent.cta.href}>
-              {featuredEvent.cta.label}
-            </SmartLink>
-          </div>
-        </div>
+      <h2>{events.heading}</h2>
+
+      <div className="events-grid">
+        {events.items.map((event) => (
+          <article className="event-card" key={event.title}>
+            <div className="event-media">
+              <Image
+                src={event.image}
+                alt={event.imageAlt}
+                fill
+                sizes="(max-width: 860px) 100vw, 50vw"
+                placeholder="blur"
+              />
+            </div>
+            <div className="event-copy">
+              <p className="event-date">{event.date}</p>
+              <h3>{event.title}</h3>
+              <p>{event.body}</p>
+              <p className="event-venue">
+                <b>{event.venue}</b>
+                <br />
+                {event.address}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="events-more">
+        <SmartLink className="btn btn-blue" href={events.cta.href}>
+          {events.cta.label}
+        </SmartLink>
       </div>
     </section>
   );

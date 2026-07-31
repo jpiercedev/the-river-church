@@ -14,6 +14,8 @@ import erleneJackson from "@/assets/erlene-jackson.jpg";
 import baptism from "@/assets/baptism.webp";
 import fellowshipCookout from "@/assets/fellowship-cookout.webp";
 import ladiesNight from "@/assets/ladies-night.webp";
+import heartOfGodConference from "@/assets/heart-of-god-conference.webp";
+import annualPicnicBaptism from "@/assets/annual-picnic-baptism.webp";
 
 export type NavItem = { label: string; href: string };
 
@@ -84,15 +86,49 @@ export const latestMessage = {
   secondaryCta: { label: "Watch On Facebook", href: site.links.facebookVideos },
 };
 
-export const featuredEvent = {
+export type ChurchEvent = {
+  image: StaticImageData;
+  imageAlt: string;
+  date: string;
+  title: string;
+  body: string;
+  venue: string;
+  address: string;
+};
+
+export const events: {
+  eyebrow: string;
+  heading: string;
+  cta: NavItem;
+  items: ChurchEvent[];
+} = {
   eyebrow: "What's Happening",
   heading: "Upcoming Events",
-  date: "Featured Event · Sunday, June 21 · 10:00 AM",
-  title: "Father's Day Service",
-  body:
-    "A special day to celebrate and honor every father, featuring guest speaker Dr. William P. Hohman and a gift for all fathers while supplies last.",
   cta: { label: "See All Events", href: site.links.facebookEvents },
-  imageAlt: "Father's Day Service event graphic at The River Church",
+  items: [
+    {
+      image: heartOfGodConference,
+      imageAlt:
+        "Heart of God Conference 2026 — Saturday, August 22 at Robinson Park, Wisconsin Rapids",
+      date: "Saturday, August 22, 2026 · 12:00 Noon – 5:00 PM",
+      title: "Heart of God Conference 2026",
+      body:
+        "The River Church and Heart-Cry Prison Ministry present a day of building bridges with God's love — music, food, community, hope, and face painting for the children.",
+      venue: "Robinson Park",
+      address: "1150 17th St S, Wisconsin Rapids, WI 54494",
+    },
+    {
+      image: annualPicnicBaptism,
+      imageAlt:
+        "Annual Picnic and Baptism — Sunday, August 23 at Nepco Park Shelter, Wisconsin Rapids",
+      date: "Sunday, August 23, 2026 · 10:00 AM",
+      title: "Annual Picnic & Baptism",
+      body:
+        "Join us out by the lake for a powerful Sunday worship service, picnic, and baptism — a day of food, fun, and fellowship for the whole church family.",
+      venue: "Nepco Park Shelter",
+      address: "1410 Griffith Avenue, Wisconsin Rapids, WI 54494",
+    },
+  ],
 };
 
 export type TeamMember = {

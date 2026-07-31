@@ -81,7 +81,8 @@ All engineering milestones complete. Operational follow-ups (need church-provide
 - [ ] (Optional) Add a custom domain in Vercel; update `NEXT_PUBLIC_SITE_URL` to match.
 - [x] Replace placeholder social / media / giving links with real church URLs. _(2026-07-31)_
 - [x] Confirm the correct public phone number — **715-423-3222**. _(2026-07-31)_
-- [ ] Supply fresh featured-event copy + graphic (the Father's Day feature is stale).
+- [x] Supply fresh featured-event copy + graphic. _(2026-07-31 — two August events)_
+- [ ] Refresh `events.items` after 2026-08-23 so the homepage isn't advertising past events.
 - [ ] (Optional) Submit the sitemap to Google Search Console.
 
 ## Outbound Links
@@ -160,8 +161,11 @@ rendering for performance.
 - **Old site is offline:** `theriverchurchinc.com` now redirects to
   `mychurchwebsite.net/suspend.php` (host suspended the account). The Facebook and Instagram
   URLs below were recovered from the Feb 2025 Wayback snapshot, not the live site.
-- **Stale featured event:** the homepage still features the June 21 Father's Day service from
-  the original mockup. Needs fresh event copy + graphic from the church.
+- ~~**Stale featured event**~~ — resolved 2026-07-31. The Father's Day feature was replaced by
+  two real August 2026 events (Heart of God Conference, Annual Picnic & Baptism), each with the
+  church's own promo graphic. `assets/fathers-day.png` was deleted with it.
+- **Events are hard-coded:** `events.items` in `lib/content.ts` must be edited by hand once
+  these August dates pass — there is no CMS and nothing expires them automatically.
 - **Geo coordinates:** omitted from JSON-LD (no authoritative lat/long found); a Google Maps
   link by address is used for "Get Directions" instead.
 - **OG image:** `og.jpg` is now a 1200×630 center-crop of the worship photo. A bespoke
