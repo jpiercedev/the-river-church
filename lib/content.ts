@@ -149,11 +149,7 @@ export const team = {
     { name: "Amanda Roberson", role: "Outreach Coordinator", image: amandaRoberson },
     { name: "Erlene Jackson", role: "Church Secretary", image: erleneJackson },
     { name: "Debbie Winkler", role: "Children's Ministry", initials: "DW" },
-    {
-      name: "Melva Smits & Debra Fiegen",
-      role: "Ladies Ministry",
-      initials: "MS · DF",
-    },
+    { name: "Debra Fiegen", role: "Ladies Ministry", initials: "DF" },
   ] satisfies TeamMember[],
 };
 
