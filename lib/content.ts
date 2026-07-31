@@ -6,7 +6,7 @@
 import type { StaticImageData } from "next/image";
 
 import { site } from "@/lib/site";
-import kevinBishop from "@/assets/kevin-bishop.jpg";
+import kevinBishop from "@/assets/kevin-bishop.webp";
 import sharonBishop from "@/assets/sharon-bishop.webp";
 import jacobAnderson from "@/assets/jacob-anderson.webp";
 import amandaRoberson from "@/assets/amanda-roberson.webp";
