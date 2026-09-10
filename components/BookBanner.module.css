@@ -71,9 +71,9 @@
   max-width: 12ch;
   margin: 0 0 18px;
   color: var(--navy);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: inherit;
   font-size: clamp(44px, 4.7vw, 64px);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.03;
   letter-spacing: -2px;
   text-wrap: balance;
@@ -90,9 +90,9 @@
   max-width: 25ch;
   margin: 28px 0 12px;
   color: #775524;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: inherit;
   font-size: 24px;
-  font-style: italic;
+  font-weight: 600;
   line-height: 1.3;
   text-wrap: balance;
 }
