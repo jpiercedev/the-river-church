@@ -140,28 +140,10 @@ export const events: {
       details: "Speaker schedule coming soon.",
       speakers:
         "Hosted by Pastor Kevin Bishop, with Pastor Luis Pizarro, Minister Marco Ledesma, and Rev. Daniel Tedtman.",
-      expectations: [
-        {
-          title: "Powerful Worship",
-          body: "An atmosphere designed for men to encounter the presence of God, lay down the weight they’ve been carrying, and refocus their hearts on Christ.",
-        },
-        {
-          title: "Prophetic Teaching",
-          body: "Spirit-led messages that speak courage, clarity, identity, and purpose into men for the season ahead.",
-        },
-        {
-          title: "Practical Equipping",
-          body: "Biblical truth that moves beyond inspiration into real-life application for marriage, family, leadership, relationships, spiritual discipline, and everyday challenges.",
-        },
-        {
-          title: "Holy Spirit Empowerment",
-          body: "More than information—we are believing for transformation as men are refreshed, strengthened, filled, and empowered by the Holy Spirit to live boldly for Christ.",
-        },
-        {
-          title: "Authentic Brotherhood",
-          body: "An opportunity to connect with other men, build meaningful relationships, and discover again that iron really does sharpen iron.",
-        },
-      ],
+      bio: {
+        heading: "What to Expect",
+        body: "Experience powerful worship, prophetic teaching, and practical biblical equipping for marriage, family, leadership, and everyday life. We’re believing for men to be refreshed and empowered by the Holy Spirit, with opportunities to build authentic friendships and encourage one another in faith—because iron sharpens iron.",
+      },
       venue: site.name,
       address: site.address.full,
     },
