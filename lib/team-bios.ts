@@ -4,6 +4,7 @@ import erleneJackson from "@/assets/erlene-jackson.webp";
 export const teamBios = [
   {
     id: "kevin-bishop",
+    published: true,
     name: "Pastor Kevin R. Bishop",
     role: "Founding & Senior Pastor",
     image: kevinBishop,
@@ -14,6 +15,8 @@ export const teamBios = [
   },
   {
     id: "erlene-jackson",
+    // Hold until the rest of the team bios are ready.
+    published: false,
     name: "Erlene Jackson",
     role: "Church Secretary",
     image: erleneJackson,

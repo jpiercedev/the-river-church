@@ -15,7 +15,7 @@ export default function TeamBios() {
         Meet Our Leaders
       </h2>
       <div className={styles.bios}>
-        {teamBios.map((member) => (
+        {teamBios.filter((member) => member.published).map((member) => (
           <article
             className={styles.bio}
             key={member.id}
