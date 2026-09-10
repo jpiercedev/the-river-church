@@ -494,14 +494,12 @@ section {
 }
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 26px;
   max-width: 1080px;
   margin: 40px auto 0;
   text-align: left;
-}
-.events-grid-single {
-  grid-template-columns: 1fr;
 }
 .event-card {
   display: flex;
@@ -553,7 +551,7 @@ section {
 .event-copy p {
   margin: 0 0 22px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .event-copy .event-details {
@@ -563,16 +561,32 @@ section {
 .event-bio {
   max-width: 760px;
 }
-.event-bio h4 {
+.event-bio h4,
+.event-expectations h4 {
   margin: 0 0 10px;
   color: var(--navy);
   font-size: 16px;
 }
-.events-grid-single .event-copy {
-  padding: 36px 40px;
+.event-expectations {
+  margin-bottom: 28px;
 }
-.events-grid-single .event-copy p {
+.event-expectations dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin: 20px 0 0;
+}
+.event-expectations dt {
+  margin-bottom: 6px;
+  color: var(--navy);
   font-size: 14px;
+  font-weight: 700;
+}
+.event-expectations dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 /* ───────────────────────────  Team  ────────────────────────────── */
@@ -1202,8 +1216,11 @@ footer.site-footer a:hover {
     grid-template-columns: 1fr;
     max-width: 560px;
   }
-  .events-grid-single .event-copy {
+  .event-copy {
     padding: 28px 24px;
+  }
+  .event-expectations dl {
+    grid-template-columns: 1fr;
   }
   .team-grid {
     grid-template-columns: repeat(2, 1fr);

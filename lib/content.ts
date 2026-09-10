@@ -17,6 +17,7 @@ import baptism from "@/assets/baptism.webp";
 import fellowshipCookout from "@/assets/fellowship-cookout.webp";
 import ladiesNight from "@/assets/ladies-night.webp";
 import powerForce from "@/assets/power-force-october-25.png";
+import ironMenConference from "@/assets/iron-men-conference-december-2026.png";
 import debbieWinkler from "@/assets/debbie-winkler.png";
 
 export type NavItem = { label: string; href: string };
@@ -96,6 +97,8 @@ export type ChurchEvent = {
   body: string;
   details?: string;
   bio?: { heading: string; body: string };
+  speakers?: string;
+  expectations?: { title: string; body: string }[];
   venue: string;
   address: string;
 };
@@ -123,6 +126,42 @@ export const events: {
         heading: "Meet John Jacobs",
         body: "John Jacobs founded The Power Team, now called The Next Generation Power Force. He has led more than 4,000 crusades in 40 countries, and his team has held more than 30,000 public school assemblies across the United States. At the heart of his ministry is a passion to see people come to Christ, the brokenhearted healed, and the discouraged encouraged—with Christ receiving all the credit.",
       },
+      venue: site.name,
+      address: site.address.full,
+    },
+    {
+      image: ironMenConference,
+      imageAlt:
+        "Iron Men Men’s Conference — Iron Sharpens Iron, Proverbs 27:17. December 4–6, 2026 at The River Church in Wisconsin Rapids.",
+      date: "December 4–6, 2026",
+      title: "Iron Men Conference",
+      body:
+        "This IRON MEN Conference will be a powerful weekend calling men to be strengthened in Christ, sharpened through brotherhood, and equipped to courageously impact their families, communities, and the Kingdom.",
+      details: "Speaker schedule coming soon.",
+      speakers:
+        "Hosted by Pastor Kevin Bishop, with Pastor Luis Pizarro, Minister Marco Ledesma, and Rev. Daniel Tedtman.",
+      expectations: [
+        {
+          title: "Powerful Worship",
+          body: "An atmosphere designed for men to encounter the presence of God, lay down the weight they’ve been carrying, and refocus their hearts on Christ.",
+        },
+        {
+          title: "Prophetic Teaching",
+          body: "Spirit-led messages that speak courage, clarity, identity, and purpose into men for the season ahead.",
+        },
+        {
+          title: "Practical Equipping",
+          body: "Biblical truth that moves beyond inspiration into real-life application for marriage, family, leadership, relationships, spiritual discipline, and everyday challenges.",
+        },
+        {
+          title: "Holy Spirit Empowerment",
+          body: "More than information—we are believing for transformation as men are refreshed, strengthened, filled, and empowered by the Holy Spirit to live boldly for Christ.",
+        },
+        {
+          title: "Authentic Brotherhood",
+          body: "An opportunity to connect with other men, build meaningful relationships, and discover again that iron really does sharpen iron.",
+        },
+      ],
       venue: site.name,
       address: site.address.full,
     },
