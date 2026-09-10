@@ -534,6 +534,10 @@ section {
 .events-more {
   margin-top: 34px;
 }
+.event-register {
+  align-self: flex-start;
+  margin: 22px 0 0;
+}
 .event-date {
   color: var(--blue);
   font-size: 10px;

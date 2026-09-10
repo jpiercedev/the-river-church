@@ -53,6 +53,12 @@ export default function Events() {
                 <br />
                 {event.address}
               </p>
+              {event.registration && (
+                <SmartLink className="btn btn-blue event-register" href={event.registration.href}>
+                  {event.registration.label}
+                  <span className="visually-hidden"> for {event.title} (opens in a new tab)</span>
+                </SmartLink>
+              )}
             </div>
           </article>
         ))}

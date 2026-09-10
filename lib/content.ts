@@ -99,6 +99,7 @@ export type ChurchEvent = {
   bio?: { heading: string; body: string };
   speakers?: string;
   expectations?: { title: string; body: string }[];
+  registration?: NavItem;
   venue: string;
   address: string;
 };
@@ -135,6 +136,10 @@ export const events: {
         "Iron Men Men’s Conference — Iron Sharpens Iron, Proverbs 27:17. December 4–6, 2026 at The River Church in Wisconsin Rapids.",
       date: "December 4–6, 2026",
       title: "Iron Men Conference",
+      registration: {
+        label: "Register Now",
+        href: "https://theriverchurchinc.brushfire.com/ironmenmensconference/639446",
+      },
       body:
         "This IRON MEN Conference will be a powerful weekend calling men to be strengthened in Christ, sharpened through brotherhood, and equipped to courageously impact their families, communities, and the Kingdom.",
       details: "Speaker schedule coming soon.",
