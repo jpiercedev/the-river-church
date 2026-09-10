@@ -17,8 +17,8 @@ export default function Header() {
   return (
     <>
       <div className="topbar">
-        SUNDAYS AT {site.service.time.toUpperCase()} · {site.address.street.toUpperCase()} ·{" "}
-        {site.address.locality.toUpperCase()}, {site.address.region}
+        <span className="service-times"><span>SUNDAYS {site.service.time}</span><span>WEDNESDAYS {site.midweekService.time}</span></span>
+        <span>{site.address.street.toUpperCase()} · {site.address.locality.toUpperCase()}, {site.address.region}</span>
       </div>
 
       <header className="site-header">

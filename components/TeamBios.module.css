@@ -1,0 +1,98 @@
+.leadership {
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+
+.eyebrow {
+  color: var(--blue);
+  text-align: center;
+}
+
+.heading {
+  margin: 13px 0 48px;
+  color: var(--navy);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -1.4px;
+  text-align: center;
+}
+
+.bios {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.bio {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: start;
+  gap: 48px;
+}
+
+.bio + .bio {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid #e6e9ee;
+}
+
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.copy h3 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  line-height: 1.2;
+}
+
+.role {
+  margin: 0 0 22px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .heading {
+    font-size: 32px;
+  }
+
+  .bio {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .bio {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+
+  .portrait {
+    max-width: 280px;
+  }
+
+  .bio + .bio {
+    margin-top: 36px;
+    padding-top: 36px;
+  }
+}

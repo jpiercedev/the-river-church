@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import TeamBios from "@/components/TeamBios";
 import { aboutHero, coreValues, statementOfFaith } from "@/lib/content";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about The River Church in Wisconsin Rapids, WI — our core values and our statement of faith. Discover what we believe about Jesus, salvation, the Holy Spirit, and more.",
+    "Meet the leaders of The River Church in Wisconsin Rapids, WI, and explore our core values and statement of faith. Discover what we believe about Jesus, salvation, and the Holy Spirit.",
   alternates: { canonical: "/about" },
+  twitter: {
+    card: "summary_large_image",
+    title: `About Us | ${site.name}`,
+    description: "Meet our leaders and explore the core values and statement of faith of The River Church in Wisconsin Rapids, WI.",
+    images: ["/og.jpg"],
+  },
   openGraph: {
     title: `About Us | ${site.name}`,
     description:
-      "Our core values and statement of faith — what we believe at The River Church in Wisconsin Rapids, WI.",
+      "Meet our leaders and explore our core values and statement of faith at The River Church in Wisconsin Rapids, WI.",
     url: `${site.url}/about`,
     type: "website",
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name}` }],
@@ -29,6 +36,8 @@ export default function AboutPage() {
           <p>{aboutHero.body}</p>
         </div>
       </section>
+
+      <TeamBios />
 
       <section className="values" id="values" aria-labelledby="values-heading">
         <p className="eyebrow" style={{ color: "var(--blue)" }}>

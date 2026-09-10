@@ -11,15 +11,15 @@ export default function Events() {
       </p>
       <h2>{events.heading}</h2>
 
-      <div className="events-grid">
+      <div className={`events-grid${events.items.length === 1 ? " events-grid-single" : ""}`}>
         {events.items.map((event) => (
           <article className="event-card" key={event.title}>
-            <div className="event-media">
+            <div className="event-media" style={{ aspectRatio: `${event.image.width} / ${event.image.height}` }}>
               <Image
                 src={event.image}
                 alt={event.imageAlt}
                 fill
-                sizes="(max-width: 860px) 100vw, 50vw"
+                sizes="(max-width: 860px) 100vw, 1080px"
                 placeholder="blur"
               />
             </div>
@@ -27,6 +27,13 @@ export default function Events() {
               <p className="event-date">{event.date}</p>
               <h3>{event.title}</h3>
               <p>{event.body}</p>
+              {event.details && <p className="event-details">{event.details}</p>}
+              {event.bio && (
+                <div className="event-bio">
+                  <h4>{event.bio.heading}</h4>
+                  <p>{event.bio.body}</p>
+                </div>
+              )}
               <p className="event-venue">
                 <b>{event.venue}</b>
                 <br />

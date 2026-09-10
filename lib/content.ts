@@ -16,15 +16,15 @@ import arnoldKing from "@/assets/arnold-king.webp";
 import baptism from "@/assets/baptism.webp";
 import fellowshipCookout from "@/assets/fellowship-cookout.webp";
 import ladiesNight from "@/assets/ladies-night.webp";
-import heartOfGodConference from "@/assets/heart-of-god-conference.webp";
-import annualPicnicBaptism from "@/assets/annual-picnic-baptism.webp";
+import powerForce from "@/assets/power-force-october-25.png";
+import debbieWinkler from "@/assets/debbie-winkler.png";
 
 export type NavItem = { label: string; href: string };
 
-/** Primary navigation. Within our 2-page scope, links resolve to the
- *  About page or to in-page anchors on the homepage. */
+/** Primary navigation shared by desktop and mobile menus. */
 export const navItems: NavItem[] = [
   { label: "About Us", href: "/about" },
+  { label: "Ministries", href: "/ministries" },
   { label: "Our Team", href: "/#team" },
   { label: "Messages", href: "/#message" },
   { label: "Events", href: "/#events" },
@@ -94,6 +94,8 @@ export type ChurchEvent = {
   date: string;
   title: string;
   body: string;
+  details?: string;
+  bio?: { heading: string; body: string };
   venue: string;
   address: string;
 };
@@ -109,26 +111,20 @@ export const events: {
   cta: { label: "See All Events", href: site.links.facebookEvents },
   items: [
     {
-      image: heartOfGodConference,
+      image: powerForce,
       imageAlt:
-        "Heart of God Conference 2026 — Saturday, August 22 at Robinson Park, Wisconsin Rapids",
-      date: "Saturday, August 22, 2026 · 12:00 Noon – 5:00 PM",
-      title: "Heart of God Conference 2026",
+        "John Jacobs’ Next Generation Power Force at The River Church — October 25, services at 10:00 AM and 6:00 PM",
+      date: "Sunday, October 25, 2026 · 10:00 AM & 6:00 PM",
+      title: "John Jacobs’ Next Generation Power Force",
       body:
-        "The River Church and Heart-Cry Prison Ministry present a day of building bridges with God's love — music, food, community, hope, and face painting for the children.",
-      venue: "Robinson Park",
-      address: "1150 17th St S, Wisconsin Rapids, WI 54494",
-    },
-    {
-      image: annualPicnicBaptism,
-      imageAlt:
-        "Annual Picnic and Baptism — Sunday, August 23 at Nepco Park Shelter, Wisconsin Rapids",
-      date: "Sunday, August 23, 2026 · 10:00 AM",
-      title: "Annual Picnic & Baptism",
-      body:
-        "Join us out by the lake for a powerful Sunday worship service, picnic, and baptism — a day of food, fun, and fellowship for the whole church family.",
-      venue: "Nepco Park Shelter",
-      address: "1410 Griffith Avenue, Wisconsin Rapids, WI 54494",
+        "Everyone is invited! Join us at The River Church for two services with John Jacobs’ Next Generation Power Force.",
+      details: "Doors open at 5:30 PM for the evening service. Come early for seating.",
+      bio: {
+        heading: "Meet John Jacobs",
+        body: "John Jacobs founded The Power Team, now called The Next Generation Power Force. He has led more than 4,000 crusades in 40 countries, and his team has held more than 30,000 public school assemblies across the United States. At the heart of his ministry is a passion to see people come to Christ, the brokenhearted healed, and the discouraged encouraged—with Christ receiving all the credit.",
+      },
+      venue: site.name,
+      address: site.address.full,
     },
   ],
 };
@@ -143,17 +139,17 @@ export type TeamMember = {
 export const team = {
   eyebrow: "Meet The People Who Serve",
   heading: "Our Team",
-  cta: { label: "Meet The Full Team", href: "/about" },
+  cta: { label: "Meet Our Leaders", href: "/about#leadership" },
   members: [
-    { name: "Pastor Kevin Bishop", role: "Senior Pastor", image: kevinBishop },
+    { name: "Pastor Kevin R. Bishop", role: "Founding & Senior Pastor", image: kevinBishop },
     { name: "Sharon Bishop", role: "Praise & Worship Leader", image: sharonBishop },
     { name: "Jacob Anderson", role: "Youth Leader", image: jacobAnderson },
     { name: "Amanda Roberson", role: "Outreach Coordinator", image: amandaRoberson },
     { name: "Erlene Jackson", role: "Church Secretary", image: erleneJackson },
-    { name: "Debbie Winkler", role: "Children's Ministry", initials: "DW" },
+    { name: "Debbie Winkler", role: "Children’s Ministry Coordinator", image: debbieWinkler },
     { name: "Debra Fiegen", role: "Ladies Ministry", image: debraFiegen },
     { name: "Arnold King", role: "Iron Men's Ministry", image: arnoldKing },
-  ] satisfies TeamMember[],
+  ] as TeamMember[],
 };
 
 export const gallery = {
@@ -189,7 +185,7 @@ export const location = {
   eyebrow: "Location & Services",
   heading: "Come Worship With Us",
   body:
-    "We would love to welcome you to The River Church. Join us for a Sunday service and experience a community where faith comes alive.",
+    "We would love to welcome you to The River Church. Join us on Sunday or Wednesday and experience a community where faith comes alive.",
   cta: { label: "Get Directions" },
 };
 
@@ -219,6 +215,7 @@ export const footer = {
         { label: "Our Mission", href: "/about" },
         { label: "Our Beliefs", href: "/about#beliefs" },
         { label: "Core Values", href: "/about#values" },
+        { label: "Ministries", href: "/ministries" },
         { label: "Watch Messages", href: site.links.youtube },
       ],
     },

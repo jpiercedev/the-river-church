@@ -27,6 +27,10 @@ export default function Location() {
           <br />
           {site.service.label}
           <br />
+          {site.midweekService.label}
+          <br />
+          <span className="service-description">{site.midweekService.description}</span>
+          <br />
           <a className="address-phone" href={`tel:${site.phone}`}>
             {site.phoneDisplay}
           </a>

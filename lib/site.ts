@@ -22,7 +22,7 @@ export const site = {
   legalName: "The River Church Inc.",
   tagline: "Igniting Fire, Faith and Freedom!",
   description:
-    "A welcoming church family in Wisconsin Rapids, WI where people encounter God, grow in faith, and discover freedom in Christ. Join us for worship every Sunday at 10:00 AM.",
+    "A welcoming church family in Wisconsin Rapids, WI where people encounter God, grow in faith, and discover freedom in Christ. Join us Sundays at 10:00 AM and Wednesdays at 7:00 PM.",
   url: resolveSiteUrl(),
   locale: "en_US",
 
@@ -43,6 +43,12 @@ export const site = {
     day: "Sunday",
     time: "10:00 AM",
     label: "Sunday Service · 10:00 AM",
+  },
+  midweekService: {
+    day: "Wednesday",
+    time: "7:00 PM",
+    label: "Wednesday Service · 7:00 PM",
+    description: "Adult, youth, and children’s ministries",
   },
 
   // External / utility links — all church-provided or verified destinations.

@@ -37,7 +37,7 @@ export default function StructuredData() {
             closes: "12:00",
           },
         ],
-        event: {
+        event: [{
           "@type": "Event",
           name: "Sunday Worship Service",
           eventSchedule: {
@@ -45,6 +45,7 @@ export default function StructuredData() {
             byDay: "https://schema.org/Sunday",
             startTime: "10:00",
             repeatFrequency: "P1W",
+            scheduleTimezone: "America/Chicago",
           },
           location: {
             "@type": "Place",
@@ -58,7 +59,19 @@ export default function StructuredData() {
               addressCountry: site.address.country,
             },
           },
-        },
+        }, {
+          "@type": "Event",
+          name: "Wednesday Service",
+          description: site.midweekService.description,
+          eventSchedule: {
+            "@type": "Schedule",
+            byDay: "https://schema.org/Wednesday",
+            startTime: "19:00",
+            repeatFrequency: "P1W",
+            scheduleTimezone: "America/Chicago",
+          },
+          location: { "@id": `${site.url}/#church` },
+        }],
       },
       {
         "@type": "WebSite",

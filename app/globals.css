@@ -94,6 +94,9 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 24px;
+  row-gap: 4px;
   padding: 6px 16px;
   text-align: center;
   background: var(--navy);
@@ -104,6 +107,16 @@ summary:focus-visible {
 }
 
 /* ───────────────────────────  Header  ──────────────────────────── */
+.service-times {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 18px;
+  row-gap: 4px;
+}
+.service-times > span {
+  white-space: nowrap;
+}
 header.site-header {
   min-height: 92px;
   display: flex;
@@ -124,6 +137,7 @@ header.site-header {
   align-items: center;
   gap: 13px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 .mark {
   width: 52px;
@@ -149,7 +163,7 @@ header.site-header {
 nav.primary-nav {
   display: flex;
   align-items: center;
-  gap: 29px;
+  gap: 20px;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 1.4px;
@@ -158,6 +172,7 @@ nav.primary-nav {
 nav.primary-nav a {
   text-decoration: none;
   color: var(--navy);
+  white-space: nowrap;
 }
 nav.primary-nav a:hover {
   color: var(--blue);
@@ -485,6 +500,9 @@ section {
   margin: 40px auto 0;
   text-align: left;
 }
+.events-grid-single {
+  grid-template-columns: 1fr;
+}
 .event-card {
   display: flex;
   flex-direction: column;
@@ -499,7 +517,7 @@ section {
   background: var(--navy);
 }
 .event-media > img {
-  object-fit: cover;
+  object-fit: contain;
 }
 .event-copy {
   display: flex;
@@ -537,6 +555,24 @@ section {
   color: var(--muted);
   font-size: 12px;
   line-height: 1.7;
+}
+.event-copy .event-details {
+  color: var(--navy);
+  font-weight: 700;
+}
+.event-bio {
+  max-width: 760px;
+}
+.event-bio h4 {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-size: 16px;
+}
+.events-grid-single .event-copy {
+  padding: 36px 40px;
+}
+.events-grid-single .event-copy p {
+  font-size: 14px;
 }
 
 /* ───────────────────────────  Team  ────────────────────────────── */
@@ -658,6 +694,10 @@ section {
 }
 .address-phone:hover {
   text-decoration: underline;
+}
+.service-description {
+  font-size: 12px;
+  font-weight: 500;
 }
 
 /* ──────────────────  Life At The River / gallery  ──────────────── */
@@ -1036,13 +1076,8 @@ footer.site-footer a:hover {
   }
 }
 
-@media (max-width: 860px) {
-  header.site-header {
-    flex-wrap: wrap;
-  }
-  nav.primary-nav {
-    display: none;
-  }
+@media (max-width: 1180px) {
+  nav.primary-nav,
   .header-right .socials {
     display: none;
   }
@@ -1082,7 +1117,12 @@ footer.site-footer a:hover {
     color: #fff;
     background: var(--blue);
   }
+}
 
+@media (max-width: 860px) {
+  header.site-header {
+    flex-wrap: wrap;
+  }
   .daily-verse {
     grid-template-columns: 1fr;
   }
@@ -1161,6 +1201,9 @@ footer.site-footer a:hover {
   .events-grid {
     grid-template-columns: 1fr;
     max-width: 560px;
+  }
+  .events-grid-single .event-copy {
+    padding: 28px 24px;
   }
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
