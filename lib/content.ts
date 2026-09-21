@@ -18,6 +18,7 @@ import fellowshipCookout from "@/assets/fellowship-cookout.webp";
 import ladiesNight from "@/assets/ladies-night.webp";
 import powerForce from "@/assets/power-force-october-25.png";
 import ironMenConference from "@/assets/iron-men-conference-december-2026.png";
+import christmasRollerSkating from "@/assets/christmas-roller-skating-party-2026.png";
 import debbieWinkler from "@/assets/debbie-winkler.png";
 
 export type NavItem = { label: string; href: string };
@@ -151,6 +152,19 @@ export const events: {
       },
       venue: site.name,
       address: site.address.full,
+    },
+    {
+      image: christmasRollerSkating,
+      imageAlt:
+        "Annual Church Christmas Roller Skating Party at Skate City in Wisconsin Rapids, Wednesday, December 16, 2026, 6:30–9:00 PM. $7 per person includes skates, all-you-can-eat pizza, and soda. All are welcome!",
+      date: "Wednesday, December 16, 2026 · 6:30–9:00 PM",
+      title: "Annual Christmas Roller Skating Party",
+      body:
+        "You, your family and friends are invited to our Annual Christmas Roller Skating Party! Whether you love to skate or would rather just watch from the sidelines, come enjoy an unforgettable evening filled with laughter, food, fellowship, and wonderful memories. We’ll also have exciting giveaways and door prizes throughout the night, so bring your family, invite a friend, and join us for some Christmas fun—there is something for everyone!",
+      details:
+        "$7 per person includes skates, all-you-can-eat pizza, and soda. All are welcome!",
+      venue: "Skate City",
+      address: "2211 36th Street N, Wisconsin Rapids, WI 54494",
     },
   ],
 };
