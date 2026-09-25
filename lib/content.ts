@@ -91,6 +91,8 @@ export const latestMessage = {
 };
 
 export type ChurchEvent = {
+  /** URL-safe identifier used by the reusable event-detail page. */
+  slug: string;
   image: StaticImageData;
   imageAlt: string;
   date: string;
@@ -103,6 +105,12 @@ export type ChurchEvent = {
   registration?: NavItem;
   venue: string;
   address: string;
+  schedule?: {
+    day: string;
+    date: string;
+    note?: string;
+    items: { time: string; title: string; detail?: string }[];
+  }[];
 };
 
 export const events: {
@@ -116,6 +124,7 @@ export const events: {
   cta: { label: "See All Events", href: site.links.facebookEvents },
   items: [
     {
+      slug: "next-generation-power-force",
       image: powerForce,
       imageAlt:
         "John Jacobs’ Next Generation Power Force at The River Church — October 25, services at 10:00 AM and 6:00 PM",
@@ -132,6 +141,7 @@ export const events: {
       address: site.address.full,
     },
     {
+      slug: "iron-men-conference-2026",
       image: ironMenConference,
       imageAlt:
         "Iron Men Men’s Conference — Iron Sharpens Iron, Proverbs 27:17. December 4–6, 2026 at The River Church in Wisconsin Rapids.",
@@ -143,7 +153,7 @@ export const events: {
       },
       body:
         "This IRON MEN Conference will be a powerful weekend calling men to be strengthened in Christ, sharpened through brotherhood, and equipped to courageously impact their families, communities, and the Kingdom.",
-      details: "Speaker schedule coming soon.",
+      details: "A full weekend of worship, teaching, ministry, food, and brotherhood.",
       speakers:
         "Hosted by Pastor Kevin Bishop, with Pastor Luis Pizarro, Minister Marco Ledesma, and Rev. Daniel Tedtman.",
       bio: {
@@ -152,8 +162,54 @@ export const events: {
       },
       venue: site.name,
       address: site.address.full,
+      schedule: [
+        {
+          day: "Friday",
+          date: "December 4",
+          items: [
+            { time: "5:30–6:15 PM", title: "Check-In", detail: "Food and drinks available" },
+            { time: "6:30 PM", title: "Heart Cry Worship Team" },
+            { time: "7:00 PM", title: "Keynote Speaker", detail: "Pastor Luis Pizarro" },
+            { time: "8:15 PM", title: "Altar Ministry & Dismissal" },
+          ],
+        },
+        {
+          day: "Saturday",
+          date: "December 5",
+          items: [
+            { time: "9:30–10:00 AM", title: "Check-In", detail: "Donuts and coffee" },
+            { time: "10:15 AM", title: "Heart Cry Worship Team" },
+            { time: "10:45 AM", title: "Keynote Speaker", detail: "Minister Marco Ledesma" },
+            { time: "11:45 AM", title: "Altar Ministry & Dismissal" },
+            { time: "12:00–12:15 PM", title: "Lunch", detail: "Provided by the church" },
+            { time: "1:15 PM", title: "Heart Cry Worship Team" },
+            {
+              time: "1:45 PM",
+              title: "Round Table Q&A",
+              detail:
+                "Hosted by Pastor Kevin Bishop with Pastor Luis Pizarro, Minister Marco Ledesma, and Rev. Daniel Tedtman",
+            },
+            { time: "2:45 PM", title: "Closing Prayer & Dismissal" },
+          ],
+        },
+        {
+          day: "Sunday",
+          date: "December 6",
+          note: "This service is for everyone.",
+          items: [
+            { time: "10:00 AM", title: "Sunday Morning Service", detail: "Praise and worship" },
+            {
+              time: "10:30 AM",
+              title: "A quick word",
+              detail: "Pastor Luis Pizarro and Minister Marco Ledesma",
+            },
+            { time: "10:40 AM", title: "Keynote Speaker", detail: "Rev. Daniel Tedtman" },
+          ],
+        },
+      ],
     },
     {
+      slug: "christmas-roller-skating-party-2026",
       image: christmasRollerSkating,
       imageAlt:
         "Annual Church Christmas Roller Skating Party at Skate City in Wisconsin Rapids, Wednesday, December 16, 2026, 6:30–9:00 PM. $7 per person includes skates, all-you-can-eat pizza, and soda. All are welcome!",
@@ -168,6 +224,11 @@ export const events: {
     },
   ],
 };
+
+/** Returns event content for the reusable /events/[slug] route. */
+export function getEventBySlug(slug: string) {
+  return events.items.find((event) => event.slug === slug);
+}
 
 export type TeamMember = {
   name: string;
