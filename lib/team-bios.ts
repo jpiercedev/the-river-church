@@ -1,4 +1,4 @@
-import kevinBishop from "@/assets/kevin-bishop.webp";
+import kevinBishop from "@/assets/kevin-bishop-portrait-oct22.jpg";
 import erleneJackson from "@/assets/erlene-jackson.webp";
 
 export const teamBios = [
