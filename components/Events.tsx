@@ -12,7 +12,7 @@ export default function Events() {
       <h2>{events.heading}</h2>
 
       <div className="events-grid">
-        {events.items.map((event) => (
+        {events.items.filter((event) => event.slug !== "next-generation-power-force").map((event) => (
           <article className="event-card" key={event.title}>
             <div className="event-media" style={{ aspectRatio: `${event.image.width} / ${event.image.height}` }}>
               <Image
